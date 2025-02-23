@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Succes - Game Hub</title>
     <link rel="stylesheet" href="../css/checkout-succes.css"> 
+    <script src="../js/checkout-succes.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -32,11 +33,13 @@
         <p class="confirmation-message">Your order has been placed successfully.</p>
         <div class="order-section">
         <div class="order-details-container">
-            <img src="../assets/images/icon/succes.png" alt="Order Image" class="order-image">
+            <div id="orders">
+
+            </div>
             
             <div class="order-info">
                 <span class="order-number">ORDER NUMBER: #123456</span>
-                <span class="total-amount">TOTAL: $265.67</span>
+                <span id="total-amount"></span>
                 <img src="../assets/images/icon/icon-cart-green.png" alt="Cart Icon" class="order-cart-icon">
             </div>
         </div>

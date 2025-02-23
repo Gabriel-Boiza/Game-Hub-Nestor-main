@@ -1,15 +1,33 @@
-document.addEventListener('DOMContentLoaded', async function(event) {
-    const id = getQueryParam('id');
+document.addEventListener('DOMContentLoaded', function(event) {
+    const total = getQueryParam('total');
+    ordersContainer = document.getElementById('orders')
+    orderTotal = document.getElementById('total-amount')
 
-    const cartLink = document.querySelector('.cart-link');
-    const cartCounter = document.createElement('span');
-    cartCounter.classList.add('cart-counter');
-    cartLink.appendChild(cartCounter);
+    orderTotal.innerHTML = total + '$';
+
+    const keys = Object.keys(localStorage);
+    const games = keys.map(key => JSON.parse(localStorage.getItem(key)));
+
+    games.forEach(game => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
     
-    updateCartCounter();
-
-    const data = await cargarDatos(id);
-
-    loadData(data);
+        card.innerHTML = `
+            <img src="${game.image.url}" alt="${game.image.alt}" class="game-image">
+            <div class="game-info">
+                <h3 class="game-name">${game.title}</h3>
+                <p class="game-description">${game.description}</p>
+                <p class="game-price">${game.discountedPrice.toFixed(2)} €</p>
+            </div>
+        `;
+    
+        ordersContainer.appendChild(card);
+    })
+    localStorage.clear()
     
 });
+
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}

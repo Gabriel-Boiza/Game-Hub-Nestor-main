@@ -9,7 +9,7 @@ function updateCartCounter() {
 }
 
 document.addEventListener('DOMContentLoaded', async function(event) {
-    console.log("sdf")
+   
     game_card = document.getElementById('games-grid');
     
     // Crear el contador del carrito
@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     updateCartCounter();
     
     const data = await loadGames();
+
     loadData(data.data, 'all');
+
 });
 
 async function loadGames() {
