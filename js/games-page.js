@@ -27,7 +27,7 @@ function updateCartCounter() {
 
 async function cargarDatos(id) {
     try {
-        const response = await fetch('../js/games.json'); 
+        const response = await fetch('../js/games.JSON'); 
         if (!response.ok) {
             throw new Error('Error al cargar el archivo JSON');
         }

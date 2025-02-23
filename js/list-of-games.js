@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
 
 async function loadGames() {
     try {
-        const response = await fetch('../js/games.json'); 
+        const response = await fetch('../js/games.JSON'); 
         if (!response.ok) {throw new Error('Error al cargar el archivo JSON');}
 
         const data = await response.json();
