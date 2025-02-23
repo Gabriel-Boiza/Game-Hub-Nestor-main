@@ -8,28 +8,19 @@ function updateCartCounter() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async function(event) {
-   
+document.addEventListener('DOMContentLoaded', function(event) {
+    console.log("sdf")
     game_card = document.getElementById('games-grid');
     
-    // Crear el contador del carrito
-    const cartLink = document.querySelector('.cart-link');
-    const cartCounter = document.createElement('span');
-    cartCounter.classList.add('cart-counter');
-    cartLink.appendChild(cartCounter);
-    
-    // Actualizar el contador inicial
-    updateCartCounter();
-    
-    const data = await loadGames();
+
 
     loadData(data.data, 'all');
-
+    console.log("sdf")
 });
 
 async function loadGames() {
     try {
-        const response = await fetch('../games.json'); 
+        const response = await fetch('../js/games.json'); 
         if (!response.ok) {
             throw new Error('Error al cargar el archivo JSON');
         }
